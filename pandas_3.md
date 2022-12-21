@@ -1,4 +1,5 @@
 ## pandas 数据统计函数
+
 1. 汇总类统计
 2. 唯一去重和按值计数
 3. 相关系数和方差
@@ -14,22 +15,6 @@ sample = pd.read_table('../name_id.xls', header = None, sep = '\t', names = ['sa
 sample.head()
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -67,32 +52,12 @@ sample.head()
     </tr>
   </tbody>
 </table>
-</div>
-
-
-
 
 ```python
 sample.set_index('samples', inplace = True)
 sample.head(10)
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -148,32 +113,12 @@ sample.head(10)
     </tr>
   </tbody>
 </table>
-</div>
-
-
-
 
 ```python
 sample['order'] = [int(i) for i in range(1,253)]
 sample.head(10)
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -241,10 +186,6 @@ sample.head(10)
     </tr>
   </tbody>
 </table>
-</div>
-
-
-
 
 ```python
 sample = sample.assign(
@@ -254,22 +195,6 @@ sample = sample.assign(
 sample
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -369,10 +294,6 @@ sample
   </tbody>
 </table>
 <p>252 rows × 4 columns</p>
-</div>
-
-
-
 
 ```python
 sample['priority'] = ''
@@ -381,22 +302,6 @@ sample.loc[sample['order'] > 30, 'priority'] = 'second group'
 sample
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -511,8 +416,6 @@ sample
 <p>252 rows × 5 columns</p>
 </div>
 
-
-
 ### 汇总类统计
 
 
@@ -521,22 +424,6 @@ sample
 sample.describe()
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -601,8 +488,6 @@ sample.describe()
 </div>
 
 
-
-
 ```python
 # 查看单个列
 display(sample['order'].mean())
@@ -613,11 +498,7 @@ display(sample['order'].min())
 
     126.5
 
-
-
     252
-
-
 
     1
 
@@ -632,11 +513,7 @@ sample['priority'].unique()
 ```
 
 
-
-
     array(['first group', 'second group'], dtype=object)
-
-
 
 #### 按值计数
 
@@ -644,8 +521,6 @@ sample['priority'].unique()
 ```python
 sample['priority'].value_counts()
 ```
-
-
 
 
     second group    222
@@ -664,26 +539,6 @@ sample['priority'].value_counts()
 sample.cov()
 ```
 
-    /var/folders/9_/zjqpf4jd0310k16rbpg_hczw0000gn/T/ipykernel_48691/1778967562.py:2: FutureWarning: The default value of numeric_only in DataFrame.cov is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.
-      sample.cov()
-
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -718,33 +573,11 @@ sample.cov()
 </div>
 
 
-
-
 ```python
 # 相关系数
 sample.corr()
 ```
 
-    /var/folders/9_/zjqpf4jd0310k16rbpg_hczw0000gn/T/ipykernel_48691/3606128338.py:2: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.
-      sample.corr()
-
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -779,8 +612,6 @@ sample.corr()
 </div>
 
 
-
-
 ```python
 # 查看单个
 display(sample['order'].cov(sample['sort']))
@@ -791,11 +622,7 @@ display(sample['order'].corr(sample['sort1'] - sample['sort']))
 
     5313.0
 
-
-
     1.0
-
-
 
     1.0
 
@@ -822,22 +649,6 @@ df = pd.read_excel('../pd_test.xlsx', skiprows = 0)
 df
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -919,8 +730,6 @@ df
 </table>
 </div>
 
-
-
 ### 检查空值
 
 
@@ -928,22 +737,6 @@ df
 df.isnull()
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -1026,13 +819,9 @@ df.isnull()
 </div>
 
 
-
-
 ```python
 df['分数'].isnull()
 ```
-
-
 
 
     0      True
@@ -1049,29 +838,11 @@ df['分数'].isnull()
     Name: 分数, dtype: bool
 
 
-
-
 ```python
 # 筛选没有空分数的所有行
 df.loc[df['分数'].notnull() , :]
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -1123,8 +894,6 @@ df.loc[df['分数'].notnull() , :]
 </table>
 </div>
 
-
-
 ### 删除掉全是空值的列
 
 
@@ -1133,22 +902,6 @@ df.dropna(axis = 'columns', how = 'all', inplace = True)
 df
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -1240,22 +993,6 @@ df.dropna(axis = 'index', how = 'all', inplace = True)
 df
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -1324,8 +1061,6 @@ df
   </tbody>
 </table>
 </div>
-
-
 
 ### 将分数列的空值填充为0
 
@@ -1335,22 +1070,6 @@ df['分数'].fillna(0, inplace = True)
 df
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -1419,8 +1138,6 @@ df
   </tbody>
 </table>
 </div>
-
-
 
 
 ```python
@@ -1429,22 +1146,6 @@ df.fillna({'分数' : 0}, inplace = True)
 df
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -1513,8 +1214,6 @@ df
   </tbody>
 </table>
 </div>
-
-
 
 ### 对姓名列的缺失值进行填充
 
@@ -1524,22 +1223,6 @@ df['姓名'].fillna(method = 'ffill', inplace = True)
 df
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -1608,8 +1291,6 @@ df
   </tbody>
 </table>
 </div>
-
-
 
 ### 将清洗好的excel保存
 
